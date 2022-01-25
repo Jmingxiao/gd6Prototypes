@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class CandySpawner : MonoBehaviour
 {
-    [SerializeField]
-    const float width =5.0f;
-    [SerializeField]
-    const float updaterate = 0.6f;
+    
+    static float updaterate = 3.0f;
     float timer =0.0f;
     ObjectPool objectPool ;
     private void Start() {
@@ -21,10 +19,18 @@ public class CandySpawner : MonoBehaviour
     void SpawnCandy()
     {   
         if(timer>updaterate){
+            
             timer = 0.0f;
-            var position = transform.position + Vector3.left * Random.Range(-width,width);
+            var position = transform.position + Vector3.left * Random.Range(-Config.SCRWidth,Config.SCRWidth);
             objectPool.SpawnFromPool("candy",position,Quaternion.identity);
         }
+    }
+   public static void AccelarateSpawnRate(){
+        if(updaterate<=Config.MinCandySpawnRate){
+            return;
+        }
+        updaterate-= Random.Range(0.1f,0.15f);
+        Debug.Log(updaterate);
     }
 
 }
