@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class CandySpawner : MonoBehaviour
 {
-    
+    public static bool spawning{set; get;}
     static float updaterate = 3.0f;
     float timer =0.0f;
     ObjectPool objectPool ;
     private void Start() {
         objectPool = ObjectPool.Instance;    
+        spawning =true;
     }
     private void Update() 
     {   timer += Time.deltaTime;
@@ -18,7 +19,7 @@ public class CandySpawner : MonoBehaviour
 
     void SpawnCandy()
     {   
-        if(timer>updaterate){
+        if(timer>updaterate&&spawning){
             
             timer = 0.0f;
             var position = transform.position + Vector3.left * Random.Range(-Config.SCRWidth,Config.SCRWidth);

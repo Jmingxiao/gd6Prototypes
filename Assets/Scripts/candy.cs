@@ -11,7 +11,10 @@ public class candy : MonoBehaviour
     }
     float timer =0.0f;
      private void OnTriggerEnter2D(Collider2D other){
-        if(other.CompareTag("Player")||other.CompareTag("Ground")){
+        if(other.CompareTag("Player")){
+            this.gameObject.SetActive(false);
+        }else if(other.CompareTag("Ground")){
+            Player.LossLife();
             this.gameObject.SetActive(false);
         }
     }
