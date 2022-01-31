@@ -102,6 +102,7 @@ public class PlayerPowerUp : MonoBehaviour
         }
         else
         {
+            Debug.Log(1);
             CandySpawner.spawning = false;
         }
     }
@@ -143,7 +144,7 @@ public class PlayerPowerUp : MonoBehaviour
     }
     void TextDisplay()
     {
-            scoreText.text = life>=0?"powe up: " + powerUpAmount.ToString() + " sore: " + score.ToString() + "  life: " + life.ToString():
+            scoreText.text = life>0?"powe up: " + powerUpAmount.ToString() + " sore: " + score.ToString() + "  life: " + life.ToString():
             "You Loss!!!" + " Score: " + score.ToString();
     }
 
