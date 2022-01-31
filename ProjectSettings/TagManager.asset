@@ -6,6 +6,9 @@ TagManager:
   tags:
   - candy
   - Ground
+  - ladder
+  - right
+  - left
   layers:
   - Default
   - TransparentFX

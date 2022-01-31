@@ -5,17 +5,18 @@ using UnityEngine;
 public class candy : MonoBehaviour
 {
     float dropRate;
-
+    Vector3 startPos;
     private void Start() {
+        startPos = transform.position;
         dropRate = Random.Range(Config.MinDropRate,Config.MaxDropRate);
     }
     float timer =0.0f;
      private void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Player")){
-            this.gameObject.SetActive(false);
+            destroycandy();
         }else if(other.CompareTag("Ground")){
-            Player.LossLife();
-            this.gameObject.SetActive(false);
+            PlayerPowerUp.LossLife();
+            destroycandy();
         }
     }
 
@@ -27,7 +28,11 @@ public class candy : MonoBehaviour
     void Drop(){
         if(timer>dropRate){
             timer=0.0f;
-            transform.position += Config.NodeSize*Vector3.down ;
+            transform.position += Config.NodeSize*Vector3.down;
         }
+    }
+    void destroycandy(){
+        transform.position = startPos;
+        gameObject.SetActive(false);
     }
 }
