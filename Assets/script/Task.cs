@@ -6,8 +6,9 @@ using UnityEngine;
 public class Task 
 {
     public GameObject bubboSprite;
-    [HideInInspector]public int completeTimes = 0;
+    public string name; 
     public Transform targetDestination;
+    [HideInInspector]public int completeTimes = 0;
 
      bool hasBubbo =false;
 

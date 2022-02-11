@@ -16,7 +16,7 @@ public class IdleState: State{
     
     public override void EnterState(Player player)
     {   
-       if(player.GetCurrentTask().completeTimes==0){
+       if(player.firstround){
            player.bubboTimer= Config.bubbointer;
        }
         Debug.Log("IDLE");
@@ -40,6 +40,7 @@ public class Walkstate:State{
     public override void EnterState(Player player)
     {
         player.SetTarget();
+        
         Debug.Log("walk");
     }
     public override void Update(Player player)
@@ -47,11 +48,11 @@ public class Walkstate:State{
        if( player.MovetoTarget()){
            OnExit(player);
        }
-        
     }
 
     public override void OnExit(Player player)
     {
+        player.animator.SetBool("walk",false);
        player.TransitionToState(player.process);
     }
 }
@@ -61,8 +62,10 @@ public class ProcessState:State{
     float processInter =2.0f;
     public override void EnterState(Player player)
     {
+        player.TaskUpdate(true);
         Debug.Log("process");
         timer = 0.0f;
+
     }
     public override void Update(Player player)
     {
@@ -75,6 +78,7 @@ public class ProcessState:State{
 
     public override void OnExit(Player player)
     {
+        player.TaskUpdate(false);
         player.switchTask();
         player.TransitionToState(player.idle);
     }
