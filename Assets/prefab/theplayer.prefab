@@ -98,6 +98,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
+  dreadtimmer: 15
+  dreadstart: 20
+  darkness: {fileID: 0}
+  dreadfloat: 0
+  timer: 0
+  MainCamer: {fileID: 0}
+  audiovolume: 0
+  Dread: {fileID: 0}
+  sitting: 0
 --- !u!95 &2024351198776265481
 Animator:
   serializedVersion: 3

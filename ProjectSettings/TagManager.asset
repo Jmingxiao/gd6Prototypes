@@ -10,6 +10,7 @@ TagManager:
   - left
   - Ground
   - candy
+  - Grid
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Obstucles
   - 
   - 
   - 

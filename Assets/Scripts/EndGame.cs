@@ -6,10 +6,6 @@ public class EndGame : MonoBehaviour
 {
     // Update is called once per frame
     public SpriteRenderer Player;
-    public GameObject end;
-    private void Start() {
-        end.SetActive(false);
-    }
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")){
             StartCoroutine(fade());
@@ -23,6 +19,6 @@ public class EndGame : MonoBehaviour
             Player.color = new Color(0,0,0,alpha);
             yield return null;
         }
-        end.SetActive(true);
+         UnityEngine.SceneManagement.SceneManager.LoadScene(2);
     }
 }
