@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")){
             //Todo:
+            other.GetComponent<PlayerMovement>().GotHarm();
             gameObject.SetActive(false);
         }else if(!other.CompareTag("Enemy")){
             gameObject.SetActive(false);
