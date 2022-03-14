@@ -17,12 +17,11 @@ public class PlayerMovement : MonoBehaviour
     int punchtimes=1;
     bool front =true;
     Animator anima;
-    int health;
+    [SerializeField]int health =4;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         anima = GetComponent<Animator>();
-        health = 5;
     }
 
     // Update is called once per frame
